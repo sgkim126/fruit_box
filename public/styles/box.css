@@ -1,0 +1,24 @@
+#game {
+  width: 720px;
+  height: 470px;
+  background-color: green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#box {
+  width: 510px; /* 17 * 30 */
+  height: 400px; /* 10 * 40 */
+  background-color: white;
+}
+.row {
+  display: flex;
+}
+.apple {
+  width: 30px;
+  height: 40px;
+  background-image: url("../images/apple.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 20px 24px;
+}
