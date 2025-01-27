@@ -31,3 +31,14 @@
   text-align: center;
   user-select: none;
 }
+
+#selection_box {
+  position: absolute;
+  border: 1px solid darkblue;
+  background-color: yellow;
+  opacity: 0.2;
+  width: 0;
+  height: 0;
+  top: 0;
+  left: 0;
+}
