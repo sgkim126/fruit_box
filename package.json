@@ -1,0 +1,8 @@
+{
+  "name": "fruit_box",
+  "version": "1.0.0",
+  "description": "A copy of friuit box game.",
+  "author": "Seulgi Kim <dev@seulgi.kim>",
+  "license": "MIT",
+  "private": true
+}
