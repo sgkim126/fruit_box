@@ -5,6 +5,10 @@
   "author": "Seulgi Kim <dev@seulgi.kim>",
   "license": "MIT",
   "private": true,
+  "scripts": {
+      "build": "tsc",
+      "watch": "tsc --watch"
+  },
   "dependencies": {
     "typescript": "^5.7.3"
   }
