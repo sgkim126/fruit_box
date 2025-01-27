@@ -1,5 +1,23 @@
-function draw_box() {
-    const box = document.querySelector("#box")!;
+function draw_menu(game: HTMLDivElement) {
+    const menu = document.createElement("div");
+    menu.id = "menu";
+
+    const start = document.createElement("button");
+    start.innerText = "Start";
+    start.addEventListener("click", e => {
+        e.preventDefault();
+        draw_box(game);
+    });
+
+    menu.appendChild(start);
+
+    game.innerHTML = "";
+    game.appendChild(menu);
+}
+
+function draw_box(game: HTMLDivElement) {
+    const box = document.createElement("div");
+    box.id = "box";
     for (let i = 0; i < 10; i += 1) {
         const row = document.createElement("div");
         row.className = "row";
@@ -10,8 +28,11 @@ function draw_box() {
         }
         box.appendChild(row);
     }
+    game.innerHTML = "";
+    game.appendChild(box);
 }
 
 window.addEventListener("load", () => {
-    draw_box();
+    const game = document.querySelector("#game")! as HTMLDivElement;
+    draw_menu(game);
 });

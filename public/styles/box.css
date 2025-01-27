@@ -6,6 +6,11 @@
   justify-content: center;
   align-items: center;
 }
+
+#menu button {
+  width: 100px;
+}
+
 #box {
   width: 510px; /* 17 * 30 */
   height: 400px; /* 10 * 40 */
