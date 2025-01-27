@@ -24,6 +24,8 @@ function draw_box(game: HTMLDivElement) {
         for (let j = 0 ; j < 17; j += 1) {
             const apple = document.createElement("div");
             apple.className = "apple";
+            const value = Math.ceil(Math.random() * 9); // 1 ~ 9;
+            apple.innerText = `${value}`;
             row.appendChild(apple);
         }
         box.appendChild(row);
