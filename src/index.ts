@@ -1,4 +1,4 @@
-function draw_menu(game: HTMLDivElement) {
+function draw_menu(main: HTMLDivElement) {
     const menu = document.createElement("div");
     menu.id = "menu";
 
@@ -6,21 +6,20 @@ function draw_menu(game: HTMLDivElement) {
     start.innerText = "Start";
     start.addEventListener("click", e => {
         e.preventDefault();
-        draw_box(game);
+        draw_game(main);
     });
 
     menu.appendChild(start);
 
-    game.innerHTML = "";
-    game.appendChild(menu);
+    main.innerHTML = "";
+    main.appendChild(menu);
 }
 
-function draw_box(game: HTMLDivElement) {
-    const box = document.createElement("div");
-    box.id = "box";
+function draw_game(main: HTMLDivElement) {
+    const game = document.createElement("div");
+    game.id = "game";
     for (let i = 0; i < 10; i += 1) {
         const row = document.createElement("div");
-        row.className = "row";
         for (let j = 0 ; j < 17; j += 1) {
             const apple = document.createElement("div");
             apple.className = "apple";
@@ -28,13 +27,13 @@ function draw_box(game: HTMLDivElement) {
             apple.innerText = `${value}`;
             row.appendChild(apple);
         }
-        box.appendChild(row);
+        game.appendChild(row);
     }
     const selection_box = document.createElement("div");
     selection_box.id = "selection_box";
-    box.appendChild(selection_box);
+    game.appendChild(selection_box);
     let start_point: {x: number; y: number} | null = null;
-    box.addEventListener("mousedown", e => {
+    game.addEventListener("mousedown", e => {
         e.preventDefault();
         selection_box.style.display = "";
         start_point = {
@@ -42,7 +41,7 @@ function draw_box(game: HTMLDivElement) {
             y: e.clientY,
         }
     });
-    box.addEventListener("mousemove", e => {
+    game.addEventListener("mousemove", e => {
         e.preventDefault();
         if (!start_point) {
             selection_box.style.display = "none";
@@ -63,7 +62,7 @@ function draw_box(game: HTMLDivElement) {
         }
         // TODO: highlight selected apples
     });
-    box.addEventListener("mouseup", e => {
+    game.addEventListener("mouseup", e => {
         e.preventDefault();
         try {
             // TODO: reset apple highlights
@@ -74,11 +73,11 @@ function draw_box(game: HTMLDivElement) {
         }
     });
 
-    game.innerHTML = "";
-    game.appendChild(box);
+    main.innerHTML = "";
+    main.append(game);
 }
 
 window.addEventListener("load", () => {
-    const game = document.querySelector("#game")! as HTMLDivElement;
-    draw_menu(game);
+    const main = document.querySelector("#main")! as HTMLDivElement;
+    draw_menu(main);
 });
