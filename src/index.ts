@@ -76,9 +76,22 @@ function draw_game(main: HTMLDivElement) {
     game.addEventListener("mouseup", e => {
         e.preventDefault();
         try {
-            // TODO: select apples
-            apples.forEach(apple => {
+            const selected_apples = apples.filter(apple => apple.classList.contains("selected"));
+
+            const selected_value = selected_apples.reduce((acc, apple) => {
+               return acc + (parseInt(apple.innerText, 10) || 0)
+            }, 0);
+            if (selected_value !== 10) {
+                apples.forEach(apple => {
+                    apple.classList.remove("selected");
+                });
+                return;
+            }
+
+            selected_apples.forEach(apple => {
+                apple.innerHTML = "&nbsp;";
                 apple.classList.remove("selected");
+                apple.classList.add("removed");
             });
         } finally {
             start_point = null;
