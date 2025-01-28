@@ -65,6 +65,9 @@
   text-align: center;
   user-select: none;
 }
+.apple.selected {
+  background-image: url("../images/selected_apple.png");
+}
 
 #selection_box {
   position: absolute;
