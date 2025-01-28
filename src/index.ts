@@ -18,6 +18,11 @@ function draw_menu(main: HTMLDivElement) {
 function draw_game(main: HTMLDivElement) {
     const game = document.createElement("div");
     game.id = "game";
+
+    const box = document.createElement("div");
+    box.id = "box";
+    game.appendChild(box);
+
     for (let i = 0; i < 10; i += 1) {
         const row = document.createElement("div");
         for (let j = 0 ; j < 17; j += 1) {
@@ -27,7 +32,7 @@ function draw_game(main: HTMLDivElement) {
             apple.innerText = `${value}`;
             row.appendChild(apple);
         }
-        game.appendChild(row);
+        box.appendChild(row);
     }
     const selection_box = document.createElement("div");
     selection_box.id = "selection_box";

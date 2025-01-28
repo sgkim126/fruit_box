@@ -10,18 +10,18 @@
   display: flex;
 }
 #left {
-  width: 100px;
+  width: 50px;
 }
 #right {
-  width: 100px;
+  width: 50px;
 }
 #bottom {
   height: 35px;
 }
 
 #main {
-  width: 510px; /* 17 * 30 */
-  height: 400px; /* 10 * 40 */
+  width: 610px; /* 17 * 30 + 50 * 2 */
+  height: 400px; /* 10 * 30 + 50 * 2 */
   background-color: white;
 }
 
@@ -40,9 +40,18 @@
   width: 100px;
 }
 
-#game > div {
-  pointer-events: none;
+#game {
+  display: grid;
+  place-items: center;
 }
+
+#box {
+  pointer-events: none;
+
+  width: 510px; /* 17 * 30 */
+  height: 300px; /* 10 * 30 */
+}
+
 .apple {
   width: 20px;
   height: 20px;
