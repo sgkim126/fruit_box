@@ -67,6 +67,7 @@
 }
 .apple.selected {
   background-image: url("../images/selected_apple.png");
+  background-color: palevioletred; /* TODO: remove this after replacing selected_apple.png */
 }
 
 #selection_box {
