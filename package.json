@@ -9,7 +9,7 @@
     "build": "vite build",
     "dev": "vite",
     "preview": "vite preview",
-    "lint": "eslint 'src/**/*'"
+    "lint": "eslint"
   },
   "dependencies": {
     "typescript": "^5.7.3"
