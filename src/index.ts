@@ -19,9 +19,12 @@ function draw_game(main: HTMLDivElement) {
     const game = document.createElement("div");
     game.id = "game";
 
+    const left = document.createElement("div");
+    const right = document.createElement("div");
+
     const box = document.createElement("div");
     box.id = "box";
-    game.appendChild(box);
+    game.append(left, box, right);
 
     const apples: HTMLDivElement[] = [];
     for (let i = 0; i < 10; i += 1) {

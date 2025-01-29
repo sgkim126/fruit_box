@@ -10,17 +10,17 @@
   display: flex;
 }
 #left {
-  width: 50px;
+  width: 35px;
 }
 #right {
-  width: 50px;
+  width: 35px;
 }
 #bottom {
   height: 35px;
 }
 
 #main {
-  width: 610px; /* 17 * 30 + 50 * 2 */
+  width: 620px; /* 50(left) + 17 * 30 + 60(right) */
   height: 400px; /* 10 * 30 + 50 * 2 */
   background-color: white;
 }
@@ -43,6 +43,7 @@
 #game {
   display: grid;
   place-items: center;
+  grid-template-columns: 50px 510px 60px;
 }
 
 #box {
