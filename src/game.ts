@@ -24,6 +24,11 @@ export function draw_game(main: HTMLDivElement, bottom: HTMLDivElement) {
     box.id = "box";
     game.append(left, box, right);
 
+    const modal = document.createElement("div");
+    modal.id = "modal";
+    const final_score = document.createElement("div");
+    modal.appendChild(final_score);
+
     const apples: HTMLDivElement[] = [];
     for (let i = 0; i < 10; i += 1) {
         const row = document.createElement("div");
@@ -47,10 +52,11 @@ export function draw_game(main: HTMLDivElement, bottom: HTMLDivElement) {
         apples.forEach(apple => {
             apple.classList.remove("selected");
         });
-        alert(`game end: ${score.innerText}`);
+        modal.classList.add("active");
+        final_score.innerText = score.innerText;
     });
 
-    game.appendChild(selection_box);
+    game.append(selection_box, modal);
     let start_point: {x: number; y: number} | null = null;
     game.addEventListener("mousedown", e => {
         e.preventDefault();
