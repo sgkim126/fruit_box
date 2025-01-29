@@ -1,0 +1,9 @@
+#menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#menu > button {
+  width: 100px;
+}
