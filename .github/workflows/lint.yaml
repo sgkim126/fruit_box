@@ -1,0 +1,23 @@
+name: Lint
+
+on:
+  push:
+    branches:
+      - "*"
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 14
+      - name: Use node
+        uses: actions/setup-node@v4
+        with:
+          node-version: latest
+      - name: Install
+        run: yarn install
+      - name: Lint
+        run: yarn lint
