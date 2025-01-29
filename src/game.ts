@@ -45,7 +45,6 @@ export function draw_game(main: HTMLDivElement, bottom: HTMLDivElement) {
     let start_point: {x: number; y: number} | null = null;
     game.addEventListener("mousedown", e => {
         e.preventDefault();
-        selection_box.style.display = "";
         start_point = {
             x: e.clientX,
             y: e.clientY,
