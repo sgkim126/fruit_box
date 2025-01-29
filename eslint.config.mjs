@@ -1,4 +1,5 @@
 import globals from "globals";
+import html from "eslint-plugin-html"
 import pluginJs from "@eslint/js";
 import tseslint from "typescript-eslint";
 
@@ -10,4 +11,5 @@ export default [
   {languageOptions: { globals: globals.browser }},
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
+  {files: ["index.html"], plugins: {html}},
 ];
