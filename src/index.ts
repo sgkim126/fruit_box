@@ -1,4 +1,4 @@
-function draw_menu(main: HTMLDivElement) {
+function draw_menu(main: HTMLDivElement, bottom: HTMLDivElement) {
     const menu = document.createElement("div");
     menu.id = "menu";
 
@@ -6,16 +6,18 @@ function draw_menu(main: HTMLDivElement) {
     start.innerText = "Start";
     start.addEventListener("click", e => {
         e.preventDefault();
-        draw_game(main);
+        draw_game(main, bottom);
     });
 
     menu.appendChild(start);
 
     main.innerHTML = "";
     main.appendChild(menu);
+
+    bottom.innerHTML = "";
 }
 
-function draw_game(main: HTMLDivElement) {
+function draw_game(main: HTMLDivElement, bottom: HTMLDivElement) {
     const game = document.createElement("div");
     game.id = "game";
 
@@ -119,6 +121,15 @@ function draw_game(main: HTMLDivElement) {
 
     main.innerHTML = "";
     main.append(game);
+
+    const reset = document.createElement("button");
+    reset.innerText = "reset";
+    reset.addEventListener("click", e => {
+        e.preventDefault();
+        draw_menu(main, bottom);
+    })
+    bottom.innerHTML = "";
+    bottom.appendChild(reset);
 }
 
 function isSelectedApple(apple: HTMLDivElement, selected: {left: number; right: number; top: number; bottom: number}): boolean {
@@ -133,5 +144,6 @@ function isSelectedApple(apple: HTMLDivElement, selected: {left: number; right: 
 
 window.addEventListener("load", () => {
     const main = document.querySelector("#main")! as HTMLDivElement;
-    draw_menu(main);
+    const bottom = document.querySelector("#bottom")! as HTMLDivElement;
+    draw_menu(main, bottom);
 });
