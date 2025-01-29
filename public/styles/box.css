@@ -83,3 +83,38 @@
   top: 0;
   left: 0;
 }
+
+#hud {
+  display: flex;
+  height: 90%;
+  gap: 10px;
+  flex-direction: column;
+}
+#hud > div {
+  width: 100%;
+}
+#timer {
+  flex-grow: 1;
+}
+#timer > div {
+  width: 10px;
+  height: 300px;
+  background-color: red;
+  align-content: flex-end;
+}
+#timer > div > div {
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+  margin: 1px;
+  background-color: yellow;
+  animation: timer 120s linear forwards;
+}
+
+@keyframes timer {
+  from {
+    height: 100%;
+  }
+  to {
+    height: 0;
+  }
+}

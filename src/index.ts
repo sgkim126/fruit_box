@@ -21,6 +21,20 @@ function draw_game(main: HTMLDivElement) {
 
     const left = document.createElement("div");
     const right = document.createElement("div");
+    right.id = "hud";
+    const score = document.createElement("div");
+    score.id = "score"
+    const timer = document.createElement("div");
+    score.innerText = "0";
+    timer.id = "timer"
+    const bar = document.createElement("div");
+    const inner_bar = document.createElement("div");
+    inner_bar.addEventListener("animationend", () => {
+        alert("game end");
+    });
+    bar.appendChild(inner_bar);
+    timer.appendChild(bar);
+    right.append(score, timer);
 
     const box = document.createElement("div");
     box.id = "box";
