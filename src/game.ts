@@ -2,6 +2,7 @@ import {draw_menu} from "./menu";
 import "../styles/game.css";
 
 export function draw_game(main: HTMLDivElement, bottom: HTMLDivElement) {
+    let is_game_running = true;
     const game = document.createElement("div");
     game.id = "game";
 
@@ -15,9 +16,6 @@ export function draw_game(main: HTMLDivElement, bottom: HTMLDivElement) {
     timer.id = "timer"
     const bar = document.createElement("div");
     const inner_bar = document.createElement("div");
-    inner_bar.addEventListener("animationend", () => {
-        alert(`game end: ${score.innerText}`);
-    });
     bar.appendChild(inner_bar);
     timer.appendChild(bar);
     right.append(score, timer);
@@ -39,12 +37,26 @@ export function draw_game(main: HTMLDivElement, bottom: HTMLDivElement) {
         }
         box.appendChild(row);
     }
+
     const selection_box = document.createElement("div");
     selection_box.id = "selection-box";
+
+    inner_bar.addEventListener("animationend", () => {
+        is_game_running = false;
+        selection_box.style.display = "none";
+        apples.forEach(apple => {
+            apple.classList.remove("selected");
+        });
+        alert(`game end: ${score.innerText}`);
+    });
+
     game.appendChild(selection_box);
     let start_point: {x: number; y: number} | null = null;
     game.addEventListener("mousedown", e => {
         e.preventDefault();
+        if (!is_game_running) {
+            return;
+        }
         start_point = {
             x: e.clientX,
             y: e.clientY,
@@ -52,7 +64,7 @@ export function draw_game(main: HTMLDivElement, bottom: HTMLDivElement) {
     });
     game.addEventListener("mousemove", e => {
         e.preventDefault();
-        if (!start_point) {
+        if (!is_game_running || !start_point) {
             selection_box.style.display = "none";
             return;
         }
@@ -78,6 +90,9 @@ export function draw_game(main: HTMLDivElement, bottom: HTMLDivElement) {
     game.addEventListener("mouseup", e => {
         e.preventDefault();
         try {
+            if (!is_game_running) {
+                return;
+            }
             const selected_apples = apples.filter(apple => apple.classList.contains("selected"));
 
             const selected_value = selected_apples.reduce((acc, apple) => {
