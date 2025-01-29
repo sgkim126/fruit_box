@@ -30,7 +30,7 @@ function draw_game(main: HTMLDivElement) {
     const bar = document.createElement("div");
     const inner_bar = document.createElement("div");
     inner_bar.addEventListener("animationend", () => {
-        alert("game end");
+        alert(`game end: ${score.innerText}`);
     });
     bar.appendChild(inner_bar);
     timer.appendChild(bar);
@@ -104,6 +104,7 @@ function draw_game(main: HTMLDivElement) {
                 });
                 return;
             }
+            score.innerText = `${parseInt(score.innerText, 10) + selected_apples.length}`;
 
             selected_apples.forEach(apple => {
                 apple.innerHTML = "&nbsp;";
