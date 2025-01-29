@@ -40,7 +40,7 @@ export function draw_game(main: HTMLDivElement, bottom: HTMLDivElement) {
         box.appendChild(row);
     }
     const selection_box = document.createElement("div");
-    selection_box.id = "selection_box";
+    selection_box.id = "selection-box";
     game.appendChild(selection_box);
     let start_point: {x: number; y: number} | null = null;
     game.addEventListener("mousedown", e => {

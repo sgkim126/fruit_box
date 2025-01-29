@@ -10,18 +10,22 @@
   height: 35px;
   width: 100%;
 }
+
 #middle {
   display: flex;
   flex-direction: column;
 }
+
 #left {
   height: 100%;
   width: 35px;
 }
+
 #right {
   height: 100%;
   width: 35px;
 }
+
 #bottom {
   height: 35px;
   width: 100%;
