@@ -34,6 +34,7 @@
 #bottom > .left {
   float: left;
 }
+
 #bottom > .right {
   float: right;
 }
@@ -52,13 +53,16 @@
 #mute {
   display: none;
 }
+
 label:has(#mute)::before {
-  font-family: "Material Icons", emoji;
+  font-family: "Material Icons", sans-serif;
   font-size: 30px;
 }
+
 label:has(#mute:not(:checked))::before {
   content: "volume_up";
 }
+
 label:has(#mute:checked)::before {
   content: "volume_mute";
 }

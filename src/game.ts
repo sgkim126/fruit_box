@@ -1,5 +1,6 @@
 import {draw_menu} from "./menu";
 import "../styles/game.css";
+import "../styles/modal.css";
 
 export function draw_game(main: HTMLDivElement, controller: HTMLDivElement) {
     let is_game_running = true;
