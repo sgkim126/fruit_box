@@ -1,7 +1,7 @@
 import {draw_menu} from "./menu";
 import "../styles/game.css";
 
-export function draw_game(main: HTMLDivElement, bottom: HTMLDivElement) {
+export function draw_game(main: HTMLDivElement, controller: HTMLDivElement) {
     let is_game_running = true;
     const game = document.createElement("div");
     game.id = "game";
@@ -129,7 +129,7 @@ export function draw_game(main: HTMLDivElement, bottom: HTMLDivElement) {
     main.innerHTML = "";
     main.append(game);
 
-    draw_bottom(main, bottom);
+    draw_bottom(main, controller);
 }
 
 function isSelectedApple(apple: HTMLDivElement, selected: {left: number; right: number; top: number; bottom: number}): boolean {

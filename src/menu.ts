@@ -1,7 +1,7 @@
 import {draw_game} from "./game";
 import "../styles/menu.css";
 
-export function draw_menu(main: HTMLDivElement, bottom: HTMLDivElement) {
+export function draw_menu(main: HTMLDivElement, controller: HTMLDivElement) {
     const menu = document.createElement("div");
     menu.id = "menu";
 
@@ -9,7 +9,7 @@ export function draw_menu(main: HTMLDivElement, bottom: HTMLDivElement) {
     start.innerText = "Start";
     start.addEventListener("click", e => {
         e.preventDefault();
-        draw_game(main, bottom);
+        draw_game(main, controller);
     });
 
     menu.appendChild(start);
@@ -17,5 +17,5 @@ export function draw_menu(main: HTMLDivElement, bottom: HTMLDivElement) {
     main.innerHTML = "";
     main.appendChild(menu);
 
-    bottom.innerHTML = "";
+    controller.innerHTML = "";
 }

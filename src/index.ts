@@ -3,6 +3,6 @@ import "../styles/layout.css";
 
 window.addEventListener("load", () => {
     const main = document.querySelector("#main")! as HTMLDivElement;
-    const bottom = document.querySelector("#bottom")! as HTMLDivElement;
-    draw_menu(main, bottom);
+    const controller = document.querySelector("#controller")! as HTMLDivElement;
+    draw_menu(main, controller);
 });

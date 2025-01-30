@@ -31,6 +31,13 @@
   width: 100%;
 }
 
+#bottom > .left {
+  float: left;
+}
+#bottom > .right {
+  float: right;
+}
+
 #main {
   width: 620px; /* 50(left) + 17 * 30 + 60(right) */
   height: 400px; /* 10 * 30 + 50 * 2 */
