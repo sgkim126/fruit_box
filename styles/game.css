@@ -17,7 +17,7 @@
   place-items: center;
 }
 #modal.active > div {
-  background-image: url("../images/apple.png");
+  background-image: url("../res/apple.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: 200px 240px;
@@ -48,11 +48,11 @@
 }
 
 .apple:not(.removed) {
-  background-image: url("../images/apple.png");
+  background-image: url("../res/apple.png");
 }
 
 .apple.selected:not(.removed) {
-  background-image: url("../images/selected_apple.png");
+  background-image: url("../res/selected_apple.png");
   background-color: palevioletred; /* TODO: remove this after replacing selected_apple.png */
 }
 
