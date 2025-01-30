@@ -2,7 +2,10 @@ import {draw_menu} from "./menu";
 import "../styles/game.css";
 import "../styles/modal.css";
 
-export function draw_game(main: HTMLDivElement, controller: HTMLDivElement) {
+export type GameOptions = {
+    intersectionThreshold?: number;
+};
+export function draw_game(main: HTMLDivElement, controller: HTMLDivElement, option: GameOptions) {
     let is_game_running = true;
     const game = document.createElement("div");
     game.id = "game";
@@ -87,7 +90,7 @@ export function draw_game(main: HTMLDivElement, controller: HTMLDivElement) {
         selection_box.style.top = `${top}px`;
 
         apples.forEach(apple => {
-            if (isSelectedApple(apple, {left, top, right: left + width, bottom: top + height})) {
+            if (isSelectedApple(apple, {left, top, right: left + width, bottom: top + height}, option.intersectionThreshold)) {
                 apple.classList.add("selected");
             } else {
                 apple.classList.remove("selected");
@@ -133,14 +136,37 @@ export function draw_game(main: HTMLDivElement, controller: HTMLDivElement) {
     draw_bottom(main, controller);
 }
 
-function isSelectedApple(apple: HTMLDivElement, selected: {left: number; right: number; top: number; bottom: number}): boolean {
-    const rect = apple.getBoundingClientRect();
+function isSelectedApple(apple: HTMLDivElement, selected: {left: number; right: number; top: number; bottom: number}, threshold: number | undefined): boolean {
+    const appleRect = apple.getBoundingClientRect();
+    return isCenterIncluded(appleRect, selected) || (!!threshold && isIntersectionAboveThreshold(appleRect, selected, threshold));
+}
+
+function isCenterIncluded(rect: DOMRect, selected: {left: number; right: number; top: number; bottom: number}): boolean {
     const x = (rect.left + rect.right) / 2;
     if (!(selected.left <= x && x <= selected.right)) {
         return false;
     }
     const y = (rect.top + rect.bottom) / 2;
     return selected.top <= y && y <= selected.bottom;
+}
+
+function isIntersectionAboveThreshold(rect: DOMRect, selected: {left: number; right: number; top: number; bottom: number}, threshold: number): boolean {
+    const intersectionArea = getIntersectionArea(rect, selected);
+    const appleArea = (rect.right - rect.left) * (rect.bottom - rect.top);
+    return (intersectionArea / appleArea) > threshold;
+}
+
+function getIntersectionArea(rect1: {top: number; bottom: number; left: number; right: number}, rect2: {top: number; bottom: number; left: number; right: number}) {
+    const top = Math.max(rect1.top, rect2.top);
+    const bottom = Math.min(rect1.bottom, rect2.bottom);
+    const left = Math.max(rect1.left, rect2.left);
+    const right = Math.min(rect1.right, rect2.right);
+    const width = right - left;
+    const height = bottom - top;
+    if (width <= 0 || height <= 0) {
+        return 0;
+    }
+    return width * height;
 }
 
 function draw_bottom(main: HTMLDivElement, bottom: HTMLDivElement) {
