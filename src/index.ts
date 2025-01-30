@@ -7,8 +7,8 @@ window.addEventListener("load", () => {
     const controller = document.querySelector("#controller")! as HTMLDivElement;
     draw_menu(main, controller);
 
-    const bite_effect = document.querySelector("#bite-effect")! as HTMLAudioElement;
+    const sounds = Array.from(document.querySelectorAll("audio"));
     const volume_button = document.querySelector("#volume-button")! as HTMLInputElement;
     const volume_slider = document.querySelector("#volume-slider")! as HTMLInputElement;
-    set_volume_control(bite_effect, volume_button, volume_slider);
+    set_volume_control(sounds, volume_button, volume_slider);
 });

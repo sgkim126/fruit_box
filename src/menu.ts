@@ -9,6 +9,11 @@ export function draw_menu(main: HTMLDivElement, controller: HTMLDivElement) {
     start.innerText = "Start";
     start.addEventListener("click", e => {
         e.preventDefault();
+        const muted = document.querySelector("#volume-button") as HTMLInputElement;
+        if (!muted.checked) {
+            const bgm = document.querySelector("#bgm") as HTMLAudioElement;
+            bgm.play();
+        }
         draw_game(main, controller);
     });
 
