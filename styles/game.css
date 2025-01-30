@@ -27,8 +27,8 @@
 }
 
 .apple.selected:not(.removed) {
-  background-image: url("../res/selected_apple.png");
-  background-color: palevioletred; /* TODO: remove this after replacing selected_apple.png */
+  background-image: url("../res/apple.png");
+  background-size: 25px 30px;
 }
 
 #selection-box {
