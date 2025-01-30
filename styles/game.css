@@ -45,6 +45,7 @@
 
 #hud {
   display: flex;
+  width: 30px;
   height: 90%;
   gap: 10px;
   flex-direction: column;
@@ -52,6 +53,8 @@
 
 #hud > div {
   width: 100%;
+  justify-items: center;
+  text-align: center;
 }
 
 #timer {
