@@ -93,6 +93,8 @@ export function draw_game(main: HTMLDivElement, bottom: HTMLDivElement) {
             }
         });
     });
+
+    const bite_effect = document.querySelector("#bite-effect") as HTMLAudioElement;
     game.addEventListener("mouseup", e => {
         e.preventDefault();
         try {
@@ -117,6 +119,7 @@ export function draw_game(main: HTMLDivElement, bottom: HTMLDivElement) {
                 apple.classList.remove("selected");
                 apple.classList.add("removed");
             });
+            bite_effect.play();
         } finally {
             start_point = null;
             selection_box.style.display = "none";
