@@ -1,5 +1,6 @@
 import {draw_menu} from "./menu";
 import "../styles/layout.css";
+import {set_volume_control} from "./volume";
 
 window.addEventListener("load", () => {
     const main = document.querySelector("#main")! as HTMLDivElement;
@@ -7,9 +8,7 @@ window.addEventListener("load", () => {
     draw_menu(main, controller);
 
     const bite_effect = document.querySelector("#bite-effect")! as HTMLAudioElement;
-    const mute = document.querySelector("#mute")! as HTMLInputElement;
-    mute.addEventListener("change", e => {
-        const target = e.target as HTMLInputElement;
-        bite_effect.muted = target.checked;
-    });
+    const volume_button = document.querySelector("#volume-button")! as HTMLInputElement;
+    const volume_slider = document.querySelector("#volume-slider")! as HTMLInputElement;
+    set_volume_control(bite_effect, volume_button, volume_slider);
 });
