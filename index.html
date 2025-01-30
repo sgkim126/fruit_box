@@ -12,6 +12,8 @@
     <meta name="apple-mobile-web-app-title" content="Fruit Box Game" />
     <link rel="manifest" href="/favicon/site.webmanifest" />
 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <script type="module" src="./src/index.ts" defer></script>
 </head>
 <body>
@@ -22,7 +24,11 @@
         <div id="main"></div>
         <div id="bottom">
             <div id="controller" class="left"></div>
-            <div class="right"></div>
+            <div class="right">
+                <label>
+                    <input id="mute" type="checkbox">
+                </label>
+            </div>
         </div>
     </div>
     <div id="right"></div>

@@ -48,3 +48,17 @@
   width: 100%;
   height: 100%;
 }
+
+#mute {
+  display: none;
+}
+label:has(#mute)::before {
+  font-family: "Material Icons", emoji;
+  font-size: 30px;
+}
+label:has(#mute:not(:checked))::before {
+  content: "volume_up";
+}
+label:has(#mute:checked)::before {
+  content: "volume_mute";
+}
