@@ -9,10 +9,11 @@
     "build": "vite build",
     "dev": "vite",
     "preview": "vite preview",
-    "lint": "yarn lint:es && yarn lint:style && yarn lint:html",
+    "lint": "yarn lint:es && yarn lint:ts && yarn lint:style && yarn lint:html",
     "lint:es": "eslint",
     "lint:html": "html-validate 'index.html'",
-    "lint:style": "stylelint 'styles/**/*.css'"
+    "lint:style": "stylelint 'styles/**/*.css'",
+    "lint:ts": "tsc --noEmit"
   },
   "dependencies": {},
   "devDependencies": {
