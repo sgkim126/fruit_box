@@ -129,14 +129,7 @@ export function draw_game(main: HTMLDivElement, bottom: HTMLDivElement) {
     main.innerHTML = "";
     main.append(game);
 
-    const reset = document.createElement("button");
-    reset.innerText = "reset";
-    reset.addEventListener("click", e => {
-        e.preventDefault();
-        draw_menu(main, bottom);
-    })
-    bottom.innerHTML = "";
-    bottom.appendChild(reset);
+    draw_bottom(main, bottom);
 }
 
 function isSelectedApple(apple: HTMLDivElement, selected: {left: number; right: number; top: number; bottom: number}): boolean {
@@ -147,4 +140,16 @@ function isSelectedApple(apple: HTMLDivElement, selected: {left: number; right: 
     }
     const y = (rect.top + rect.bottom) / 2;
     return selected.top <= y && y <= selected.bottom;
+}
+
+function draw_bottom(main: HTMLDivElement, bottom: HTMLDivElement) {
+    const reset = document.createElement("button");
+    reset.innerText = "reset";
+    reset.addEventListener("click", e => {
+        e.preventDefault();
+        draw_menu(main, bottom);
+    })
+
+    bottom.innerHTML = "";
+    bottom.appendChild(reset);
 }
