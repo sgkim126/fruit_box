@@ -20,7 +20,6 @@
   background-size: 20px 24px;
   align-content: center;
   text-align: center;
-  user-select: none;
 }
 
 .apple:not(.removed) {
